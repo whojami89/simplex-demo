@@ -40,10 +40,11 @@ test.describe('Simplex buy crypto page tests', () => {
     test('currency inputs are required', async () => {
         await simplexPage.fillCryptoInputByValue('')
         await simplexPage.currencyInputErrorCountIsEqualTo(1);
+        await simplexPage.changeFiatCurrency(Fiat.CHF.code)
         await simplexPage.fillFiatInputByValue('')
         await simplexPage.currencyInputErrorCountIsEqualTo(2);
         await simplexPage.cryptoErrorMsgIsEqualTo(`Please enter ${Crypto.BTC.fullName} amount`);
-        await simplexPage.fiatErrorMsgIsEqualTo(`Please enter ${Fiat.EUR.fullName} amount`)
+        await simplexPage.fiatErrorMsgIsEqualTo(`Please enter ${Fiat.CHF.fullName} amount`)
         //additional check if error msgs are dynamic
         await simplexPage.changeCryptoCurrency(Crypto.ETH.code)
         await simplexPage.currencyInputErrorCountIsEqualTo(2);

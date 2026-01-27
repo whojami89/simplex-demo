@@ -84,7 +84,17 @@ export class SimplexPage {
             .locator(`[data-currency="${currency}"]`);
         await expect(searchResult).toBeVisible();
         await searchResult.click();
+    }
 
+    async changeFiatCurrency(currency: string) {
+        const dropdown = this.locators.buyCryptoPage.exchangeForm.fiatDropdown;
+
+        await dropdown.click();
+        await dropdown.fill(currency)
+        const searchResult = this.locators.buyCryptoPage.exchangeForm.searchResults
+            .locator(`[data-currency="${currency}"]`);
+        await expect(searchResult).toBeVisible();
+        await searchResult.click();
     }
 
     async fiatInputValueIsEqualTo(value: string) {
