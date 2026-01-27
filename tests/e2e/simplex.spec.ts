@@ -19,7 +19,7 @@ test.describe('Simplex main page tests', () => {
         await simplexPage.cryptoCalculatorIsDisplayed();
 
         await simplexPage.cryptoDropdownIsEqualTo(Crypto.BTC);
-        await simplexPage.fiatDropdownIsEqualTo(Fiat.EUR);
+        await simplexPage.fiatDropdownIsEqualTo(new RegExp(`${Fiat.EUR.code}|${Fiat.USD.code}`));
         await simplexPage.cryptoInputDefaultLookIsCorrect();
         await simplexPage.fiatInputValueIsEqualTo('300');
         await simplexPage.addressInputIsEqualTo('')

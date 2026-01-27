@@ -68,10 +68,11 @@ export class SimplexPage {
         });
     }
 
-    async fiatDropdownIsEqualTo(currency: Currency) {
+    async fiatDropdownIsEqualTo(currency: Currency | RegExp) {
         const dropdown = this.locators.buyCryptoPage.exchangeForm.fiatDropdown;
         await expect(dropdown).toBeVisible();
-        await expect(dropdown).toHaveValue(new RegExp(currency.code));
+        const expected = currency instanceof RegExp ? currency : new RegExp(currency.code);
+        await expect(dropdown).toHaveValue(expected);
     }
 
     async changeCryptoCurrency(currency: string) {
