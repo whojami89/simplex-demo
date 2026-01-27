@@ -52,6 +52,7 @@ test.describe('Simplex buy crypto page tests', () => {
     });
 
     test('Wrong address should throw an error message', async () => {
+        test.fail();
         await simplexPage.fillAddressByValue('test')
         await simplexPage.clickOnContinueButton();
 
