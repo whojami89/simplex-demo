@@ -19,6 +19,7 @@ export const Crypto = {
 
 export const Fiat = {
     EUR: new Currency('EUR', 'Euro'),
+    USD: new Currency('USD', 'United States Dollar'),
     GBP: new Currency('GBP', 'Pound Sterling'),
     PLN: new Currency('PLN', 'Polish Złoty'),
     CHF: new Currency('CHF', 'Swiss Franc'),
